@@ -31,3 +31,9 @@ PCB | Schematics |
 * 1x EC11 Rotary encoder
 * 3x SK6812 MINI-E LEDs
 * 4x M3x16mm screws
+
+
+## Final notes
+* I really hoped this gets approved! I worked really hard on this. (Aprox 3 days)
+* I wish Fusion360 was simple and easier.
+* This is my first blueprint project!
