@@ -1,3 +1,6 @@
+# KMK fw code (simplified for me and YOU)
+# Microcontroller = Seeed XIAO RP2040
+
 # bring our friends in
 # the regular friends
 import board
@@ -13,6 +16,8 @@ from kmk.extensions.media_keys import MediaKeys
 # OLED Pt 2
 from kmk.extensions.display.ssd1306 import SSD1306
 from kmk.extensions.display import Display, TextEntry, ImageEntry
+# lights
+from kmk.extensions.RGB import RGB, AnimationsModes
 # the BRAIN
 keyboard = KMKKeyboard()
 
@@ -42,12 +47,21 @@ display = Display(
 
 # display the text
 display.entries = [
-    TextEntry(text="Hello!", x=0, y=20)
+    TextEntry(text="Hello!", x=0, y=0)
 ]
 
 # define our pins for the knob
 encoder_handler.pins = ((board.A1, board.A0, None, False),)
 # A1 = Vol Up. A0 = Vol Down.
+
+rgb = RGB(
+    pixel_pin=board.GP0,
+    num_pixel=3,
+    hue_default=0,
+    animation_mode=AnimationsModes.STATIC,
+    sat_default=0,
+)
+keyboard.extensions.append(rgb)
 
 # define the PINS
 # GP1 - GP4 = regular keyboard buttons (SW1-SW4)
@@ -94,18 +108,3 @@ encoder_handler.map = [
 # GO GO GO!
 if __name__ == '__main__':
     keyboard.go()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
